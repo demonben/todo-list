@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./Header";
+import Input from "./Input";
 import TodoList from "./listTodo/TodoList";
 
 export default function TodoPage() {
@@ -12,6 +13,7 @@ export default function TodoPage() {
   return (
     <div>
       <Header />
+      <Input/>
       <TodoList arrTodo={arrTodo} />;
     </div>
   );
