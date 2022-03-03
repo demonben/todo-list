@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "./Header";
 import TodoList from "./listTodo/TodoList";
 
 export default function TodoPage() {
@@ -8,5 +9,10 @@ export default function TodoPage() {
     { id: Math.random(), text: 3 },
   ];
 
-  return <TodoList arrTodo={arrTodo} />;
+  return (
+    <div>
+      <Header />
+      <TodoList arrTodo={arrTodo} />;
+    </div>
+  );
 }
