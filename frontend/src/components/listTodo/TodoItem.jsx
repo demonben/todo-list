@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export default function TodoItem() {
+export default function TodoItem({ todoItem }) {
   return (
-    <div>TodoItem</div>
-  )
+    <div>
+      <li>{todoItem.text}</li>
+    </div>
+  );
 }

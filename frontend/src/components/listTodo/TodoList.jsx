@@ -1,7 +1,13 @@
-import React from 'react'
+import React from "react";
+import TodoItem from "./TodoItem";
 
-export default function TodoList() {
+export default function TodoList({ arrTodo }) {
+  const todoListItems = arrTodo.map((item) => (
+    <TodoItem todoItem={item} key={item.id} />
+  ));
   return (
-    <div>TodoList</div>
-  )
+    <div>
+      <ul>{todoListItems}</ul>
+    </div>
+  );
 }
