@@ -15,14 +15,15 @@ export default function Input({
     const todoItemObject = {
       id: Math.random(),
       text: inputText,
-      completed:false
+      completed: false,
     };
     setTodoList([...todoList, todoItemObject]);
+    setInputText("");
   };
 
   return (
     <form>
-      <input onChange={inputTextHandler} type="text" className="todo-input" />
+      <input value={inputText} onChange={inputTextHandler} type="text" className="todo-input" />
       <button onClick={submitTodoItem} className="todo-button" type="submit">
         <i className="fas fa-plus-square">add</i>
       </button>
