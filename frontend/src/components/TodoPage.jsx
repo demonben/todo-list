@@ -12,6 +12,8 @@ import TodoList from "./listTodo/TodoList";
 export default function TodoPage() {
   const [inputText, setInputText] = useState("");
   const [todoList, setTodoList] = useState([]);
+  const [status, setStatus] = useState("all");
+  const [filteredTodoList, setFilteredTodoList] = useState([]);
 
   return (
     <div>
@@ -21,6 +23,7 @@ export default function TodoPage() {
         inputText={inputText}
         setTodoList={setTodoList}
         todoList={todoList}
+        setStatus={setStatus}
       />
       <TodoList todoList={todoList} setTodoList={setTodoList} />
     </div>
