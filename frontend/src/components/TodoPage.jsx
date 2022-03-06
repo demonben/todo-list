@@ -22,7 +22,7 @@ export default function TodoPage() {
         setTodoList={setTodoList}
         todoList={todoList}
       />
-      <TodoList todoList={todoList} />
+      <TodoList todoList={todoList} setTodoList={setTodoList} />
     </div>
   );
 }
