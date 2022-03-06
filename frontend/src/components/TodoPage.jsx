@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Input from "./Input";
 import TodoList from "./listTodo/TodoList";
@@ -15,6 +15,19 @@ export default function TodoPage() {
   const [status, setStatus] = useState("all");
   const [filteredTodoList, setFilteredTodoList] = useState([]);
 
+  useEffect(() => {
+    console.log("HEY");
+  }, [todoList]);
+
+  const filterHandler = () => {
+    if (status === "completed") {
+      setFilteredTodoList(todoList.filter((item) => item.status === true));
+    } else if (status === "uncompleted") {
+      setFilteredTodoList(todoList.filter((item) => item.status === false));
+    } else {
+      setFilteredTodoList(todoList);
+    }
+  };
   return (
     <div>
       <Header />
@@ -24,6 +37,7 @@ export default function TodoPage() {
         setTodoList={setTodoList}
         todoList={todoList}
         setStatus={setStatus}
+        filterHandler={filterHandler}
       />
       <TodoList todoList={todoList} setTodoList={setTodoList} />
     </div>

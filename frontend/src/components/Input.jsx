@@ -6,6 +6,7 @@ export default function Input({
   setTodoList,
   todoList,
   setStatus,
+  filterHandler
 }) {
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
@@ -23,7 +24,8 @@ export default function Input({
   };
 
   const statusHandler = (e) => {
-    console.log(e.target.value);
+    setStatus(e.target.value);
+    filterHandler()
   };
   return (
     <form>
