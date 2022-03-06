@@ -5,7 +5,7 @@ export default function Input({
   inputText,
   setTodoList,
   todoList,
-  setStatus
+  setStatus,
 }) {
   const inputTextHandler = (e) => {
     setInputText(e.target.value);

@@ -1,8 +1,8 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-export default function TodoList({ todoList, setTodoList }) {
-  const todoListItems = todoList.map((item) => (
+export default function TodoList({ todoList, setTodoList, filteredTodoList }) {
+  const todoListItems = filteredTodoList.map((item) => (
     <TodoItem
       setTodoList={setTodoList}
       todoList={todoList}
