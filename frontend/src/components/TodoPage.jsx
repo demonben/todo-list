@@ -3,17 +3,15 @@ import Header from "./Header";
 import Input from "./Input";
 import TodoList from "./listTodo/TodoList";
 
-// const arrTodo = [
-//   { id: Math.random(), text: 1 },
-//   { id: Math.random(), text: 2 },
-//   { id: Math.random(), text: 3 },
-// ];
-
 export default function TodoPage() {
   const [inputText, setInputText] = useState("");
   const [todoList, setTodoList] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredTodoList, setFilteredTodoList] = useState([]);
+
+  useEffect(() => {
+    getTodoListLocaly();
+  }, []);
 
   useEffect(() => {
     const filterHandler = () => {
@@ -26,7 +24,21 @@ export default function TodoPage() {
       }
     };
     filterHandler();
+    saveTodoListLocaly();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [todoList, status]);
+
+  const saveTodoListLocaly = () => {
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+  };
+  const getTodoListLocaly = () => {
+    if (localStorage.getItem("todoList") === null) {
+      localStorage.setItem("todoList", JSON.stringify([]));
+    } else {
+      let todoListLocal = JSON.parse(localStorage.getItem("todoList"));
+      setTodoList(todoListLocal);
+    }
+  };
 
   return (
     <div>
