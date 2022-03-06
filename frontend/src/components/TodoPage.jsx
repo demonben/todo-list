@@ -16,14 +16,14 @@ export default function TodoPage() {
   const [filteredTodoList, setFilteredTodoList] = useState([]);
 
   useEffect(() => {
-    console.log("HEY");
-  }, [todoList]);
+    filterHandler();
+  }, [todoList, status]);
 
   const filterHandler = () => {
     if (status === "completed") {
-      setFilteredTodoList(todoList.filter((item) => item.status === true));
+      setFilteredTodoList(todoList.filter((item) => item.completed));
     } else if (status === "uncompleted") {
-      setFilteredTodoList(todoList.filter((item) => item.status === false));
+      setFilteredTodoList(todoList.filter((item) => item.completed));
     } else {
       setFilteredTodoList(todoList);
     }
