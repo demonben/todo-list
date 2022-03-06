@@ -16,19 +16,17 @@ export default function TodoPage() {
   const [filteredTodoList, setFilteredTodoList] = useState([]);
 
   useEffect(() => {
+    const filterHandler = () => {
+      if (status === "completed") {
+        setFilteredTodoList(todoList.filter((item) => item.completed));
+      } else if (status === "uncompleted") {
+        setFilteredTodoList(todoList.filter((item) => !item.completed));
+      } else {
+        setFilteredTodoList(todoList);
+      }
+    };
     filterHandler();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [todoList, status]);
-
-  const filterHandler = () => {
-    if (status === "completed") {
-      setFilteredTodoList(todoList.filter((item) => item.completed));
-    } else if (status === "uncompleted") {
-      setFilteredTodoList(todoList.filter((item) => !item.completed));
-    } else {
-      setFilteredTodoList(todoList);
-    }
-  };
 
   return (
     <div>
@@ -39,7 +37,6 @@ export default function TodoPage() {
         setTodoList={setTodoList}
         todoList={todoList}
         setStatus={setStatus}
-        filterHandler={filterHandler}
       />
       <TodoList
         todoList={todoList}
